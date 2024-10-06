@@ -1,4 +1,4 @@
-name: Exemplos de tratamento de inputs
+name: Exemplos de tratamento de inputs e outputs
 run-name: Exemplo de workflow executado ${{ github.actor }}
 on:
    workflow_dispatch:
