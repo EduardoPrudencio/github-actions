@@ -37,5 +37,13 @@ jobs:
           echo "Versão: ${{ inputs.versao}}"
           echo "O card é: ${{Inputs.numero_card}}"    
           echo "Deve realizar deploy: ${{Inputs.executar_deploy}}"    
-          echo "Ambiente de deploy: ${{Inputs.ambiente}}"    
+          echo "Ambiente de deploy: ${{Inputs.ambiente}}"  
+      - name: Gerando output com shel
+        id: exemplo-output
+        run: |
+          ACTION_RANDOM=$(( $RANDOM ))
+          echo "action_random=$ACTION-RANDOM" >> $GITHUB_OUTPUT
+          
+      - name: Exibindo o resultado da action exemplo-output
+        run: echo "${{ steps.exemplo-output.outputs.action_random }}"    
 
