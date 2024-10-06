@@ -37,6 +37,45 @@ jobs:
           echo "Versão: ${{ inputs.versao}}"
           echo "O card é: ${{Inputs.numero_card}}"    
           echo "Deve realizar deploy: ${{Inputs.executar_deploy}}"    
+          echo "Ambiente de deploy: ${{Inputs.ambiente}}"  name: Exemplos de tratamento de inputs
+run-name: Exemplo de workflow executado ${{ github.actor }}
+on:
+   workflow_dispatch:
+        inputs:
+            versao:
+              type: string
+              required: true
+              default: "dev"
+              description: "Versão da nova release"
+            numero_card:
+              type: number
+              required: true
+              description: "Número do card da tarefa relacionada ao commit"
+            executar_deploy:
+              type: boolean
+              required: true
+              default: false
+              description: "Especifica se deve ou nõ realizar deploy"
+            ambiente:
+              type: choice
+              required: true
+              description: "Definição do ambiente onde o deploy será realizado"
+              options:
+                - Desenvolvimento
+                - Homologação
+                - Produção
+jobs:
+  valores_input:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Exibindo dados dos inputs
+        run: echo "${{ toJson(inputs)}}" 
+      - name: Exibindo os valores individualmente
+        run: |
+          echo "Esses são os valores informados"
+          echo "Versão: ${{ inputs.versao}}"
+          echo "O card é: ${{Inputs.numero_card}}"    
+          echo "Deve realizar deploy: ${{Inputs.executar_deploy}}"    
           echo "Ambiente de deploy: ${{Inputs.ambiente}}"  
       - name: Gerando output com shell
         id: exemplo-output
@@ -45,4 +84,5 @@ jobs:
           echo "action_random=$ACTION_RANDOM" >> $GITHUB_OUTPUT
       - name: Exibindo o resultado da action exemplo-output
         run: echo "${{ steps.exemplo-output.outputs.action_random }}"
+      
       
