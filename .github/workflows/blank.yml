@@ -1,5 +1,5 @@
 name: Exemplos de tratamento de inputs e outputs
-run-name: Exemplo de workflow executado ${{ github.actor }}
+run-name: Exemplo de workflow executado por ${{ github.actor }}
 on:
    workflow_dispatch:
         inputs:
