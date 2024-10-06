@@ -1,36 +1,41 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the workflow will run
+name: Exemplos de tratamento de inputs
+run-name: Exemplo de workflow executado ${{ github.actor }}
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+   workflow_dispatch:
+        inputs:
+            versao:
+              type: string
+              required: true
+              default: "dev"
+              description: "Versão da nova release"
+            numero_card:
+              type: number
+              required: true
+              description: "Número do card da tarefa relacionada ao commit"
+            executar_deploy:
+              type: boolean
+              required: true
+              default: false
+              description: "Especifica se deve ou nõ realizar deploy"
+            ambiente:
+              type: choice
+              required: true
+              description: "Definição do ambiente onde o deploy será realizado"
+              options:
+                - Desenvolvimento
+                - Homologação
+                - Produção
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  valores_input:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Exibindo dados dos inputs
+        run: echo "${{ toJson(inputs)}}" 
+      - name: Exibindo os valores individualmente
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo "Esses são os valores informados"
+          echo "Versão: ${{ inputs.versao}}"
+          echo "O card é: ${{Inputs.numero_card}}"    
+          echo "Deve realizar deploy: ${{Inputs.executar_deploy}}"    
+          echo "Ambiente de deploy: ${{Inputs.ambiente}}"    
+
