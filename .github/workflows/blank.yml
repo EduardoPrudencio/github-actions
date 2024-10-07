@@ -1,4 +1,4 @@
-name: Exemplos de tratamento de inputs e outputs
+name: Exemplos de tratamento de inputs e outputs e artifacts
 run-name: Exemplo de workflow executado por ${{ github.actor }}
 on:
    workflow_dispatch:
@@ -16,7 +16,7 @@ on:
               type: boolean
               required: true
               default: false
-              description: "Especifica se deve ou nõ realizar deploy"
+              description: "Especifica se deve ou não realizar deploy"
             ambiente:
               type: choice
               required: true
@@ -38,27 +38,31 @@ jobs:
         run: |
           echo "Esses são os valores informados"
           echo "Versão: ${{ inputs.versao}}"
-          echo "O card é: ${{Inputs.numero_card}}"    
-          echo "Deve realizar deploy: ${{Inputs.executar_deploy}}"    
-          echo "Ambiente de deploy: ${{Inputs.ambiente}}"
+          echo "O card é: ${{ inputs.numero_card}}"    
+          echo "Deve realizar deploy: ${{ inputs.executar_deploy}}"    
+          echo "Ambiente de deploy: ${{ inputs.ambiente }}"
       - name: Gerando output com shell
         id: exemplo-output
         run: | 
           ACTION_RANDOM=$(( RANDOM ))
           echo "action_random=$ACTION_RANDOM" >> $GITHUB_OUTPUT
 
-      - name: Eibindo o resultado da action exemplo-output
+      - name: Exibindo o resultado da action exemplo-output
         run: echo "${{ steps.exemplo-output.outputs.action_random }}"
-   # TRABALHANDO COM ARTIFACTS        
+
   criando-upload-de-artifact:
-   runs-on: ubuntu-latest
-   steps:
+    runs-on: ubuntu-latest
+    needs: [valores_input]
+    steps:
       - name: Exibindo arquivos
         run: ls
-      - name: Criando arquivos
+      - name: Criando arquivos com dados dos inputs
         run: |
             mkdir artefatos
-            echo "Conteúdo do arquivo 01" > ./artefatos/arquivo-01.txt
+            echo "Versão: ${{ inputs.versao}}" > ./artefatos/versao.txt
+            echo "Número do card: ${{ inputs.numero_card}}" > ./artefatos/numero_card.txt
+            echo "Deve realizar deploy: ${{ inputs.executar_deploy}}" > ./artefatos/deploy.txt
+            echo "Ambiente de deploy: ${{ inputs.ambiente}}" > ./artefatos/ambiente.txt
       - name: Enviando arquivos para o Github Artifact
         uses: actions/upload-artifact@v4
         id: upload-artifact
@@ -70,10 +74,10 @@ jobs:
         run: |
            echo "${{ steps.upload-artifact.outputs.artifact-url }}"
            
-  downaload-artifact:
-   runs-on: ubuntu-latest
-   needs: [criando-upload-de-artifact]
-   steps:
+  download-artifact:
+    runs-on: ubuntu-latest
+    needs: [criando-upload-de-artifact]
+    steps:
       - name: Listando arquivos
         run: ls
 
