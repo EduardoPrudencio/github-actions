@@ -1,4 +1,4 @@
-name: Exemplos de tratamento de inputs e outputs e artifacts
+name: Exemplos de estudos de inputs, outputs e artifacts
 run-name: Exemplo de workflow executado por ${{ github.actor }}
 on:
    workflow_dispatch:
@@ -59,10 +59,10 @@ jobs:
       - name: Criando arquivos com dados dos inputs
         run: |
             mkdir artefatos
-            echo "Versão: ${{ inputs.versao}}" > ./artefatos/versao.txt
-            echo "Número do card: ${{ inputs.numero_card}}" > ./artefatos/numero_card.txt
-            echo "Deve realizar deploy: ${{ inputs.executar_deploy}}" > ./artefatos/deploy.txt
-            echo "Ambiente de deploy: ${{ inputs.ambiente}}" > ./artefatos/ambiente.txt
+            echo "Versão: ${{ inputs.versao}}" > ./artefatos/deploy.txt
+            echo "Número do card: ${{ inputs.numero_card}}" >> ./artefatos/deploy.txt
+            echo "Deve realizar deploy: ${{ inputs.executar_deploy}}" >> ./artefatos/deploy.txt
+            echo "Ambiente de deploy: ${{ inputs.ambiente}}" >> ./artefatos/deploy.txt
       - name: Enviando arquivos para o Github Artifact
         uses: actions/upload-artifact@v4
         id: upload-artifact
