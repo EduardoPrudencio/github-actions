@@ -7,4 +7,8 @@ jobs:
     steps:
       - name: teste 01
         run: echo "Escrevendo a primeira linha"
+  CD:
+    needs: [CI]
+    uses: https://github.dev/EduardoPrudencio/github-actions/.github/workflows/cd.yaml@main
+
           
