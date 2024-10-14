@@ -1,14 +1,11 @@
-name: Estudando chamada de outro worker process
+name: Teste de chamada de workflow
+run-name: Teste executado por ${{ github.actor }} 
 on:
   workflow_dispatch:
 jobs:
   CI:
     runs-on: ubuntu-latest
     steps:
-      - name: teste 01
-        run: echo "Escrevendo a primeira linha"
-  CD:
-    needs: [CI]
-    uses: EduardoPrudencio/github-actions/.github/workflows/cd.yaml@main
-
-          
+      - name: Primeira linha
+        run: echo "Executanod a primeira linha"
+  

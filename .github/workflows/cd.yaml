@@ -1,9 +1,0 @@
-name: workflow chamado
-on:
-    workflow_call:
-jobs:
-    workflow_chamado:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Exibindo comando do worker
-              run: echo "Executando comando do worker chamado"          
