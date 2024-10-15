@@ -2,8 +2,8 @@ name: Workflow de apoio
 on:
     workflow_call:
 jobs:
-  CD:
+  CI:
+    runs-on: ubuntu-laste
     steps:
-        - name: Executando a linha do workflow de apoio
-        run: echo "Executando a segunda linha"  
-        
+      - name: Execução da segunda linha
+        run: Segunda lina sendo executada  
