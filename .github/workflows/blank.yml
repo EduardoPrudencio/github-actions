@@ -1,12 +1,12 @@
-name: Teste V de chamada de workflow
+name: workflow de CI
 on:
-  workflow_dispatch
+  workflow_dispatch:
 jobs:
   CI:
-    runs-on: ubuntu-laste
+    runs-on: ubuntu-latest
     steps:
-      - name: Execução da primeira linha
-        run: Primeira lina sendo executada  
+      - name: Simulando a primeira linha
+        run: echo "Executando a primeira linha do primeiro workflow"
   CD:
     needs: [CI]
-    uses: EduardoPrudencio/github-actions/.github/workflows/cd.yaml@main      
+    uses: EduardoPrudencio/github-actions/.github/workflows/cd.yaml

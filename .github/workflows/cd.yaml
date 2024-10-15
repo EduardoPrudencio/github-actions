@@ -1,9 +1,9 @@
-name: Workflow de apoio
+name: Workflow criado para exemplo de reaproveitamento de workflow
 on:
-    workflow_call:
+  workflow_call:
 jobs:
-  CI:
-    runs-on: ubuntu-laste
+  CD:
+    runs-on: ubuntu-latest
     steps:
-      - name: Execução da segunda linha
-        run: Segunda lina sendo executada  
+      - name: Comando do workflow chamado
+        run: echo "Executando o comando do worflow chamado"  
