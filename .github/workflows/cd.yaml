@@ -1,9 +1,12 @@
 name: Workflow criado para exemplo de reaproveitamento de workflow
 on:
   workflow_call:
+  secrets:
+    version:
+      required: true
 jobs:
   CD:
     runs-on: ubuntu-latest
     steps:
       - name: Comando do workflow chamado
-        run: echo "Executando o comando do worflow chamado"  
+        run: echo "Executando o comando do worflow chamado da versão ${{ secrets.version}}"  

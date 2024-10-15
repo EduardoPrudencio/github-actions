@@ -10,3 +10,5 @@ jobs:
   CD:
     needs: [CI]
     uses: EduardoPrudencio/github-actions/.github/workflows/cd.yaml@main
+    secrets:
+      version: ${{secrets.VERSION_VALUE}}  
