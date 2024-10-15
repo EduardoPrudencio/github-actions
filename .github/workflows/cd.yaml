@@ -1,0 +1,9 @@
+name: Comandos executados depois e chamado
+on:
+    workflow_call:
+jobs:
+    CD:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Executando linha do workflow chamado
+              run: echo "Executando o comando do workerflow chamado"  

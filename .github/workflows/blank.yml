@@ -8,4 +8,7 @@ jobs:
     steps:
       - name: Primeira linha
         run: echo "Executanod a primeira linha"
+  CD:
+    needs: [CI]
+    uses: EduardoPrudencio/github-actions/.github/workflows/blank.yml@main 
   
