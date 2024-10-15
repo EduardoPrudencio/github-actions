@@ -9,4 +9,4 @@ jobs:
         run: echo "Executando a primeira linha do primeiro workflow"
   CD:
     needs: [CI]
-    uses: EduardoPrudencio/github-actions/.github/workflows/cd.yaml
+    uses: EduardoPrudencio/github-actions/.github/workflows/cd.yaml@main
