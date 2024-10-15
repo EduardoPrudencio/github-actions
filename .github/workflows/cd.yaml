@@ -10,3 +10,5 @@ jobs:
     steps:
       - name: Comando do workflow chamado
         run: echo "Executando o comando do worflow chamado da versão ${{ secrets.version}}"
+      - name: Envio de parâmetro por webhook
+        run: "curl -X POST https://webhook.site/#!/view/67072ee0-3198-421a-96b8-64681ec8cefc -d '{ambiente: ${{secrets.version}}}'"
