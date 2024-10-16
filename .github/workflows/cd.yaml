@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Exibindo o valor recebido por input
-        run: echo "O valor informado foi: ${{inputs.valor_um}}"
+        run: echo "O valor informado foi ${{inputs.valor_um}}"
       - name: Comando do workflow chamado
         run: echo "Executando o comando do worflow chamado da versão ${{ secrets.version}}"
       - name: Envio de parâmetro por webhook
