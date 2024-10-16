@@ -10,5 +10,7 @@ jobs:
   CD:
     needs: [CI]
     uses: EduardoPrudencio/github-actions/.github/workflows/cd.yaml@main
+    with:
+      valor_um: Texto para valor um
     secrets:
       version: ${{secrets.VERSION_VALUE}}  
