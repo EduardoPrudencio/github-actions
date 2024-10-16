@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 jobs:
   CI:
-    environment: homologacao
+    environment: producao
     runs-on: ubuntu-latest
     steps:
       - name: Simulando a primeira linha
