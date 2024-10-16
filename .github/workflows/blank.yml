@@ -1,9 +1,16 @@
 name: workflow de CI
 on:
   workflow_dispatch:
+  inputs:
+    ambiente:
+      type: choice
+      required: true
+      options:
+        - homologacao
+        - producao
 jobs:
   CI:
-    environment: producao
+    environment: ${{inputs.ambiente}}
     runs-on: ubuntu-latest
     steps:
       - name: Simulando a primeira linha
