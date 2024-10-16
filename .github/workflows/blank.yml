@@ -3,10 +3,13 @@ on:
   workflow_dispatch:
 jobs:
   CI:
+    environment: homologacao
     runs-on: ubuntu-latest
     steps:
       - name: Simulando a primeira linha
         run: echo "Executando a primeira linha do primeiro workflow"
+      - name: Pegando valor de variável por ambinete
+        run: echo "Aqui o valor é ${{ vars.VALOR}}"
   CD:
     needs: [CI]
     uses: EduardoPrudencio/github-actions/.github/workflows/cd.yaml@main
@@ -14,3 +17,4 @@ jobs:
       valor_um: Texto para valor um
     secrets:
       version: ${{secrets.VERSION_VALUE}}  
+      #VALOR
