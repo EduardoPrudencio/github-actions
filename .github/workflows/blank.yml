@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 jobs:
   firstSample:
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
     steps:
       - name: Executando a primeira linha
         run: echo "Primeira linha"
