@@ -1,0 +1,10 @@
+name: estudando
+on:
+  workflow_dispatch:
+jobs:
+  exemplo1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Escrevendo algo
+       run: exho "Escrevendo primeira linha"
+
