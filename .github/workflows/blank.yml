@@ -1,0 +1,9 @@
+name: Arquivo de exemplo para estudo
+on:
+  workflow_dispatch:
+jobs:
+  firstSample:
+    runs-on: ubuntu-lates
+    steps:
+      - name: Executando a primeira linha
+        run: echo "Primeira linha"
