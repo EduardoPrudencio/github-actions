@@ -1,9 +1,0 @@
-name: Estudo
-on:
-  workflow_dispatch:
-jobs:
-  samples:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Escrevendo priemira linha
-        run: echo "Primeira linha"  
