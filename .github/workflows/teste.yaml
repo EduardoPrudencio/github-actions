@@ -1,10 +1,9 @@
-name: estudando
+name: Estudo
 on:
   workflow_dispatch:
 jobs:
-  exemplo1:
+  samples:
     runs-on: ubuntu-latest
     steps:
-      - name: Escrevendo algo
-       run: exho "Escrevendo primeira linha"
-
+      - name: Escrevendo priemira linha
+        run: echo "Primeira linha"  
