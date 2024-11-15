@@ -1,7 +1,6 @@
 name: Execução por webhook
 on:
-  repository_dispatch:
-    types: [chamada_executada]
+  workflow_dispatch:
 jobs:
   first-action:
     runs-on: ubuntu-latest
