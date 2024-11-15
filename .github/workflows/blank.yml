@@ -1,10 +1,10 @@
-name: Segundo dia de estudo
-run-name: Executado por ${{ github.actor }}
+name: Execução por webhook
 on:
-  workflow_dispatch:
+  repository_dispatch:
+    types: [chamada_executada]
 jobs:
-  first:
+  first-action:
     runs-on: ubuntu-latest
     steps:
-      - name: Exemplo de execução
-        run: echo "Executando a primeira linha"
+      - name: Exibindo mensagem
+        run: echo "Workflow disparado por webhook"
