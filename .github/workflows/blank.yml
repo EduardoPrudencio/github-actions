@@ -3,8 +3,8 @@ run-name: Executado por ${{ github.actor }}
 on:
   workflow_dispatch:
 jobs:
- first:
+  first:
     runs-on: ubuntu-latest
     steps:
-      - name: Executando a primeira linha
-        run: echo "Escrevendo a promeira linha"    
+      - name: Exemplo de execução
+        run: echo "Executando a primeira linha"
