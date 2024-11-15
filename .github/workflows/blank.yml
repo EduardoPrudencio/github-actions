@@ -1,9 +1,10 @@
-name: Arquivo de exemplo para estudo
+name: Segundo dia de estudo
+run-name: Executado por ${{ github.actor }}
 on:
   workflow_dispatch:
 jobs:
-  firstSample:
+ first:
     runs-on: ubuntu-latest
     steps:
       - name: Executando a primeira linha
-        run: echo "Primeira linha"
+        run: echo "Escrevendo a promeira linha"    
