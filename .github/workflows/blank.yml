@@ -8,3 +8,5 @@ jobs:
     steps:
       - name: Exibindo mensagem
         run: echo "Workflow disparado por webhook"
+      - name: Verificando TOKEN
+        run: curl -X POST -d {“teste”:235, "token":${{ secrets.GITHUB_TOKEN}}}   
