@@ -1,11 +1,12 @@
-name: Execução por webhook
+name: Terceiro dia de Estudo
+run-name: Executado por ${{ github.actor}}
 on:
   workflow_dispatch:
 jobs:
-  first-action:
+  first-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Exibindo mensagem
-        run: echo "Workflow disparado por webhook"
-      - name: Verificando TOKEN
-        run: "curl -X POST https://webhook.site/6d1b7aff-d07f-46fb-a4f6-098a2cc7ddc4 -d  '{token: ${{ secrets.GITHUB_TOKEN}} }'"  
+      - name: Primeira action
+        run: echo "Executando a primeira linha"
+      - name: Chamando api
+        run: "curl -X POST -H 'Content-Type: application/json' https://webhook.site/6d1b7aff-d07f-46fb-a4f6-098a2cc7ddc4 -d '{token: ${{ secrets.GITHUB_TOKEN}}}'" 
