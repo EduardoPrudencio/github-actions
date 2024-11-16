@@ -6,5 +6,7 @@ jobs:
     first-job:
       runs-on: ubuntu-latest
       steps:
-        - name: Exibindo o nome
-          run: echo "${{github.ref}}"  
+        - name: Executar tarefa apenas na main
+          if: ${{ github.ref == 'refs/heads/main' }}
+          run: echo "Rodando na branch main"
+
