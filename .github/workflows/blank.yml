@@ -1,6 +1,9 @@
 name: Quarto dia de estudo
 run-name: Executado por ${{ github.actor}}
 on:
+  pull_request:
+    branches:
+      - main      
   workflow_dispatch:
 jobs:
   first-job:
