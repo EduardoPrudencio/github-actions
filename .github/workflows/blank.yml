@@ -8,7 +8,11 @@ jobs:
     steps:
       - name: Primeira linha
         run: echo "Vai rodar apenas em main."
+        
       - name: Verificação
         if: ${{github.ref == 'refs/heads/main'}}
-        run: echo "Está rodanod na main!"  
+        run: echo "Está rodanod na main!"
+        
+      - name: Chamando uma api e passando o token
+        run: "Curl -X POST https://webhook.site/6d1b7aff-d07f-46fb-a4f6-098a2cc7ddc4 -d '{name: Nome de teste}' -H \"key: ${{ secrets.GITHUB_TOKEN}}\""  
     
