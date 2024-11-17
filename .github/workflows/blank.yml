@@ -9,6 +9,6 @@ jobs:
       - name: Primeira linha
         run: echo "Vai rodar apenas em main."
       - name: Verificação
-        if: ${{github.ref == 'ref/heads/main'}}
+        if: ${{github.ref == 'refs/heads/main'}}
         run: echo "Está rodanod na main!"  
     
