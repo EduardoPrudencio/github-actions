@@ -14,9 +14,12 @@ jobs:
         run: echo "Está rodanod na main!"
         
       - name: Chamando uma api e passando o token
-        run: | 
+        run: |
           curl -X POST \
-          https://webhook.site/6d1b7aff-d07f-46fb-a4f6-098a2cc7ddc4 \
-          -d '{name: Nome de teste}' \
-          -H "key: ${{ secrets.GITHUB_TOKEN}}"  
+          -H "key: ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          -d '{"name": "Nome de teste"}' \
+          https://webhook.site/6d1b7aff-d07f-46fb-a4f6-098a2cc7ddc4
+
+            
     
