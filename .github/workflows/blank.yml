@@ -1,12 +1,14 @@
-name: Exibindo o nome da branch
-run-name: Executado por ${{ github.actor }}
+name: Quarto dia de estudo
+run-name: Executado por ${{ github.actor}}
 on:
   workflow_dispatch:
 jobs:
-    first-job:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Executar tarefa apenas na main
-          if: ${{ github.ref == 'refs/heads/main' }}
-          run: echo "Rodando na branch main"
-
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Primeira linha
+        run: echo "Vai rodar apenas em main."
+      - name: Verificação
+        if: ${{github.ref == 'ref/heads/main'}}
+        run: echo "Está rodanod na main!"  
+    
